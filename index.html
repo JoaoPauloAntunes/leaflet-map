@@ -112,17 +112,14 @@
             icon: L.icon(feature.properties.iconstyle)
           });
         }
-        //else
         return new L.Marker(latLng);
       }
       if (feature.properties.icon == 'circle') {
         if (feature.properties.iconstyle) {
           return new L.circleMarker(latLng, feature.properties.iconstyle)
         };
-        //else
         return new L.circleMarker(latLng);
       }
-      //else
 
       return new L.Marker(latLng);
     },
