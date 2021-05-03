@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.4.0/dist/leaflet.css" />
+  <link rel="stylesheet"
+    href="https://rawcdn.githack.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css" />
+  <style>
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+  <style>
+    #map {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+    }
+  </style>
+
+  <meta name="viewport" content="width=device-width,
+        initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <style>
+    #map_fb315f2e184d4bd7a73fdf8a675b712d {
+      position: relative;
+      width: 100.0%;
+      height: 100.0%;
+      left: 0.0%;
+      top: 0.0%;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.4.0/dist/leaflet.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://rawcdn.githack.com/nezasa/iso8601-js-period/master/iso8601.min.js"></script>
+  <script
+    src="https://rawcdn.githack.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+</head>
+
+<body>
+
+  <div class="folium-map" id="map_fb315f2e184d4bd7a73fdf8a675b712d"></div>
+</body>
+<script>
+
+
+  var bounds = null;
+
+
+  var map_fb315f2e184d4bd7a73fdf8a675b712d = L.map(
+    'map_fb315f2e184d4bd7a73fdf8a675b712d', {
+    center: [-23.7097929, -48.7520879],
+    zoom: 5,
+    maxBounds: bounds,
+    layers: [],
+    worldCopyJump: false,
+    crs: L.CRS.EPSG3857,
+    zoomControl: true,
+  });
+
+
+
+  var tile_layer_8454d10dd9834a848545dbdaf67d9011 = L.tileLayer(
+    'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png',
+    {
+      "attribution": null,
+      "detectRetina": false,
+      "maxNativeZoom": 18,
+      "maxZoom": 18,
+      "minZoom": 0,
+      "noWrap": false,
+      "opacity": 1,
+      "subdomains": "abc",
+      "tms": false
+    }).addTo(map_fb315f2e184d4bd7a73fdf8a675b712d);
+
+  L.Control.TimeDimensionCustom = L.Control.TimeDimension.extend({
+    _getDisplayDateFormat: function (date) {
+      const dateObj = new moment(date);
+      return dateObj.format("YYYY/MM/DD");
+    }
+  });
+
+  map_fb315f2e184d4bd7a73fdf8a675b712d.timeDimension = L.timeDimension({ period: "PT12H" });
+  var timeDimensionControl = new L.Control.TimeDimensionCustom({
+    "autoPlay": false,
+    "loopButton": true,
+    "maxSpeed": 0.8,
+    "minSpeed": 0.1,
+    "playerOptions": {
+      "loop": false,
+      "startOver": true,
+      "transitionTime": 200
+    },
+    "position": "bottomleft",
+    "timeSliderDragUpdate": true
+  });
+  map_fb315f2e184d4bd7a73fdf8a675b712d.addControl(timeDimensionControl);
+
+
+  var geoJsonLayer = L.geoJson({ "type": "FeatureCollection", "features": [{ "type": "Feature", "geometry": { "type": "Point", "coordinates": [-44.75, -23.7] }, "properties": { "time": "2021-01-01", "popup": "<h1>address1</h1>", "icon": "circle", "iconstyle": { "color": "green", "fillColor": "green", "fillOpacity": 0.6, "stroke": "false", "radius": 10 } } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [-48.759, -23.7] }, "properties": { "time": "2021-01-01", "popup": "<h1>address1</h1>", "icon": "circle", "iconstyle": { "color": "green", "fillColor": "green", "fillOpacity": 0.6, "stroke": "false", "radius": 20 } } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [-52.75, -23.709] }, "properties": { "time": "2021-01-01", "popup": "<h1>address1</h1>", "icon": "circle", "iconstyle": { "color": "green", "fillColor": "green", "fillOpacity": 0.6, "stroke": "false", "radius": 10 } } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [-44.75, -23.7] }, "properties": { "time": "2021-01-02", "popup": "<h1>address1</h1>", "icon": "circle", "iconstyle": { "color": "yellow", "fillColor": "yellow", "fillOpacity": 0.6, "stroke": "false", "radius": 10 } } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [-48.759, -23.7] }, "properties": { "time": "2021-01-02", "popup": "<h1>address1</h1>", "icon": "circle", "iconstyle": { "color": "yellow", "fillColor": "yellow", "fillOpacity": 0.6, "stroke": "false", "radius": 30 } } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [-52.75, -23.709] }, "properties": { "time": "2021-01-02", "popup": "<h1>address1</h1>", "icon": "circle", "iconstyle": { "color": "yellow", "fillColor": "yellow", "fillOpacity": 0.6, "stroke": "false", "radius": 10 } } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [-44.75, -23.7] }, "properties": { "time": "2021-01-03", "popup": "<h1>address1</h1>", "icon": "circle", "iconstyle": { "color": "yellow", "fillColor": "yellow", "fillOpacity": 0.6, "stroke": "false", "radius": 15 } } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [-48.759, -23.7] }, "properties": { "time": "2021-01-03", "popup": "<h1>address1</h1>", "icon": "circle", "iconstyle": { "color": "red", "fillColor": "red", "fillOpacity": 0.6, "stroke": "false", "radius": 30 } } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [-52.75, -23.709] }, "properties": { "time": "2021-01-03", "popup": "<h1>address1</h1>", "icon": "circle", "iconstyle": { "color": "yellow", "fillColor": "yellow", "fillOpacity": 0.6, "stroke": "false", "radius": 15 } } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [-56.75, -23.709] }, "properties": { "time": "2021-01-03", "popup": "<h1>address1</h1>", "icon": "circle", "iconstyle": { "color": "yellow", "fillColor": "yellow", "fillOpacity": 0.6, "stroke": "false", "radius": 10 } } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [-44.75, -23.7] }, "properties": { "time": "2021-01-04", "popup": "<h1>address1</h1>", "icon": "circle", "iconstyle": { "color": "green", "fillColor": "green", "fillOpacity": 0.6, "stroke": "false", "radius": 35 } } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [-48.759, -23.7] }, "properties": { "time": "2021-01-04", "popup": "<h1>address1</h1>", "icon": "circle", "iconstyle": { "color": "orange", "fillColor": "orange", "fillOpacity": 0.6, "stroke": "false", "radius": 30 } } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [-52.75, -23.709] }, "properties": { "time": "2021-01-04", "popup": "<h1>address1</h1>", "icon": "circle", "iconstyle": { "color": "green", "fillColor": "green", "fillOpacity": 0.6, "stroke": "false", "radius": 15 } } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [-56.75, -23.709] }, "properties": { "time": "2021-01-04", "popup": "<h1>address1</h1>", "icon": "circle", "iconstyle": { "color": "red", "fillColor": "red", "fillOpacity": 0.6, "stroke": "false", "radius": 50 } } }] }, {
+    pointToLayer: function (feature, latLng) {
+      if (feature.properties.icon == 'marker') {
+        if (feature.properties.iconstyle) {
+          return new L.Marker(latLng, {
+            icon: L.icon(feature.properties.iconstyle)
+          });
+        }
+        //else
+        return new L.Marker(latLng);
+      }
+      if (feature.properties.icon == 'circle') {
+        if (feature.properties.iconstyle) {
+          return new L.circleMarker(latLng, feature.properties.iconstyle)
+        };
+        //else
+        return new L.circleMarker(latLng);
+      }
+      //else
+
+      return new L.Marker(latLng);
+    },
+    style: function (feature) {
+      return feature.properties.style;
+    },
+    onEachFeature: function (feature, layer) {
+      if (feature.properties.popup) {
+        layer.bindPopup(feature.properties.popup);
+      }
+    }
+  })
+
+  var timestamped_geo_json_51af1dc187e4451bba5fc6fa396d77b9 = L.timeDimension.layer.geoJson(geoJsonLayer,
+    {
+      updateTimeDimension: true,
+      addlastPoint: false,
+      duration: "PT12H",
+    }).addTo(map_fb315f2e184d4bd7a73fdf8a675b712d);
+
+</script>
