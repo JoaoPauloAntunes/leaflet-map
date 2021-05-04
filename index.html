@@ -77,7 +77,7 @@
       L.Control.TimeDimensionCustom = L.Control.TimeDimension.extend({
         _getDisplayDateFormat: function (date) {
           const dateObj = new moment(date);
-          return dateObj.format("YYYY/MM/DD");
+          return dateObj.format("YYYY-MM-DD");
         }
       });
 
@@ -98,7 +98,209 @@
       map.addControl(timeDimensionControl);
 
 
-      var geoJsonLayer = L.geoJson({ "type": "FeatureCollection", "features": [{ "type": "Feature", "geometry": { "type": "Point", "coordinates": [-44.75, -23.7] }, "properties": { "time": "2021-01-01", "popup": "<h1>address1</h1>", "icon": "circle", "iconstyle": { "color": "green", "fillColor": "green", "fillOpacity": 0.6, "stroke": "false", "radius": 10 } } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [-48.759, -23.7] }, "properties": { "time": "2021-01-01", "popup": "<h1>address1</h1>", "icon": "circle", "iconstyle": { "color": "green", "fillColor": "green", "fillOpacity": 0.6, "stroke": "false", "radius": 20 } } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [-52.75, -23.709] }, "properties": { "time": "2021-01-01", "popup": "<h1>address1</h1>", "icon": "circle", "iconstyle": { "color": "green", "fillColor": "green", "fillOpacity": 0.6, "stroke": "false", "radius": 10 } } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [-44.75, -23.7] }, "properties": { "time": "2021-01-02", "popup": "<h1>address1</h1>", "icon": "circle", "iconstyle": { "color": "yellow", "fillColor": "yellow", "fillOpacity": 0.6, "stroke": "false", "radius": 10 } } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [-48.759, -23.7] }, "properties": { "time": "2021-01-02", "popup": "<h1>address1</h1>", "icon": "circle", "iconstyle": { "color": "yellow", "fillColor": "yellow", "fillOpacity": 0.6, "stroke": "false", "radius": 30 } } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [-52.75, -23.709] }, "properties": { "time": "2021-01-02", "popup": "<h1>address1</h1>", "icon": "circle", "iconstyle": { "color": "yellow", "fillColor": "yellow", "fillOpacity": 0.6, "stroke": "false", "radius": 10 } } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [-44.75, -23.7] }, "properties": { "time": "2021-01-03", "popup": "<h1>address1</h1>", "icon": "circle", "iconstyle": { "color": "yellow", "fillColor": "yellow", "fillOpacity": 0.6, "stroke": "false", "radius": 15 } } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [-48.759, -23.7] }, "properties": { "time": "2021-01-03", "popup": "<h1>address1</h1>", "icon": "circle", "iconstyle": { "color": "red", "fillColor": "red", "fillOpacity": 0.6, "stroke": "false", "radius": 30 } } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [-52.75, -23.709] }, "properties": { "time": "2021-01-03", "popup": "<h1>address1</h1>", "icon": "circle", "iconstyle": { "color": "yellow", "fillColor": "yellow", "fillOpacity": 0.6, "stroke": "false", "radius": 15 } } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [-56.75, -23.709] }, "properties": { "time": "2021-01-03", "popup": "<h1>address1</h1>", "icon": "circle", "iconstyle": { "color": "yellow", "fillColor": "yellow", "fillOpacity": 0.6, "stroke": "false", "radius": 10 } } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [-44.75, -23.7] }, "properties": { "time": "2021-01-04", "popup": "<h1>address1</h1>", "icon": "circle", "iconstyle": { "color": "green", "fillColor": "green", "fillOpacity": 0.6, "stroke": "false", "radius": 35 } } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [-48.759, -23.7] }, "properties": { "time": "2021-01-04", "popup": "<h1>address1</h1>", "icon": "circle", "iconstyle": { "color": "orange", "fillColor": "orange", "fillOpacity": 0.6, "stroke": "false", "radius": 30 } } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [-52.75, -23.709] }, "properties": { "time": "2021-01-04", "popup": "<h1>address1</h1>", "icon": "circle", "iconstyle": { "color": "green", "fillColor": "green", "fillOpacity": 0.6, "stroke": "false", "radius": 15 } } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [-56.75, -23.709] }, "properties": { "time": "2021-01-04", "popup": "<h1>address1</h1>", "icon": "circle", "iconstyle": { "color": "red", "fillColor": "red", "fillOpacity": 0.6, "stroke": "false", "radius": 50 } } }] }, {
+      var geoJsonLayer = L.geoJson({
+        "type": "FeatureCollection",
+        "features": [
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                -44.75,
+                -23.7
+              ]
+            },
+            "properties": {
+              "time": "2021-01-01",
+              "popup": "<h1>t1</h1>",
+              "icon": "circle",
+              "iconstyle": {
+                "color": "black",
+                "fillColor": "lightgreen",
+                "fillOpacity": 0.6,
+                "stroke": "false",
+                "radius": 10
+              }
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                -48.759,
+                -23.7
+              ]
+            },
+            "properties": {
+              "time": "2021-01-01",
+              "popup": "<h1>t1</h1>",
+              "icon": "circle",
+              "iconstyle": {
+                "color": "black",
+                "fillColor": "lightblue",
+                "fillOpacity": 0.6,
+                "stroke": "false",
+                "radius": 20
+              }
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                -52.75,
+                -23.709
+              ]
+            },
+            "properties": {
+              "time": "2021-01-01",
+              "popup": "<h1>t1</h1>",
+              "icon": "circle",
+              "iconstyle": {
+                "color": "black",
+                "fillColor": "white",
+                "fillOpacity": 0.6,
+                "stroke": "false",
+                "radius": 10
+              }
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                -44.75,
+                -23.7
+              ]
+            },
+            "properties": {
+              "time": "2021-01-02",
+              "popup": "<h1>t2</h1>",
+              "icon": "circle",
+              "iconstyle": {
+                "color": "black",
+                "fillColor": "darkgreen",
+                "fillOpacity": 0.6,
+                "stroke": "false",
+                "radius": 10
+              }
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                -48.759,
+                -23.7
+              ]
+            },
+            "properties": {
+              "time": "2021-01-02",
+              "popup": "<h1>t2</h1>",
+              "icon": "circle",
+              "iconstyle": {
+                "color": "black",
+                "fillColor": "blue",
+                "fillOpacity": 0.6,
+                "stroke": "false",
+                "radius": 30
+              }
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                -52.75,
+                -23.709
+              ]
+            },
+            "properties": {
+              "time": "2021-01-02",
+              "popup": "<h1>t2</h1>",
+              "icon": "circle",
+              "iconstyle": {
+                "color": "black",
+                "fillColor": "silver",
+                "fillOpacity": 0.6,
+                "stroke": "false",
+                "radius": 10
+              }
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                -44.75,
+                -23.7
+              ]
+            },
+            "properties": {
+              "time": "2021-01-03",
+              "popup": "<h1>t3</h1>",
+              "icon": "circle",
+              "iconstyle": {
+                "color": "black",
+                "fillColor": "darkgreen",
+                "fillOpacity": 0.6,
+                "stroke": "false",
+                "radius": 15
+              }
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                -48.759,
+                -23.7
+              ]
+            },
+            "properties": {
+              "time": "2021-01-03",
+              "popup": "<h1>t3</h1>",
+              "icon": "circle",
+              "iconstyle": {
+                "color": "black",
+                "fillColor": "darkblue",
+                "fillOpacity": 0.6,
+                "stroke": "false",
+                "radius": 30
+              }
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                -52.75,
+                -23.709
+              ]
+            },
+            "properties": {
+              "time": "2021-01-03",
+              "popup": "<h1>t3</h1>",
+              "icon": "circle",
+              "iconstyle": {
+                "color": "black",
+                "fillColor": "black",
+                "fillOpacity": 0.6,
+                "stroke": "false",
+                "radius": 15
+              }
+            }
+          }
+        ]
+      }, {
         pointToLayer: function (feature, latLng) {
           if (feature.properties.icon == 'marker') {
             if (feature.properties.iconstyle) {
@@ -106,12 +308,14 @@
                 icon: L.icon(feature.properties.iconstyle)
               });
             }
+
             return new L.Marker(latLng);
           }
           if (feature.properties.icon == 'circle') {
             if (feature.properties.iconstyle) {
               return new L.circleMarker(latLng, feature.properties.iconstyle)
             };
+
             return new L.circleMarker(latLng);
           }
 
