@@ -52,7 +52,7 @@
       const map = L.map(
         'map', {
         center: [-23.7097929, -48.7520879],
-        zoom: 5,
+        zoom: 7,
         maxBounds: null,
         layers: [],
         worldCopyJump: false,
@@ -134,14 +134,16 @@
           duration: "PT12H",
         }).addTo(map);
 
-      // configura os limites- dois pontos que representam o quadrado de campo de visão
+      // configura os limites- dois pontos que representam um quadrado
       var bounds = new L.LatLngBounds(
-        new L.LatLng(-23.953200293826328, -53.19976909027968),
-        new L.LatLng(-23.498038156915356, -45.959520585014964)
+        new L.LatLng(-23.523829440683254, -48.25448884637058),
+        new L.LatLng(-22.869988565887347, -47.06273991959647)
       );
-      map.fitBounds(bounds); // ajustar os limites ao mapa
+      // map.fitBounds(bounds); // ajusta os limites ao mapa
 
       const url = "https://i.pinimg.com/originals/68/1d/82/681d82761579270fb0dd1fdfe08cb424.jpg";
+
+      // image overlay se ajusta aos bounds
       var imageOverlay = new L.ImageOverlay(url, bounds, {
         opacity: 0.7,
         interactive: false,
