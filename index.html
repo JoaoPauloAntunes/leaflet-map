@@ -136,12 +136,14 @@
 
       // configura os limites- dois pontos que representam um quadrado
       var bounds = new L.LatLngBounds(
-        new L.LatLng(-23.523829440683254, -48.25448884637058),
-        new L.LatLng(-22.869988565887347, -47.06273991959647)
+        new L.LatLng(-22.26327467406831, -50.78450595088806),
+        new L.LatLng(-24.000515688362036, -49.86152846671378)
       );
       // map.fitBounds(bounds); // ajusta os limites ao mapa
 
-      const url = "https://i.pinimg.com/originals/68/1d/82/681d82761579270fb0dd1fdfe08cb424.jpg";
+      const url = "images/john1.png";
+      // const url = "images/john2.png";
+      // const url = "images/john3.png";
 
       // image overlay se ajusta aos bounds
       var imageOverlay = new L.ImageOverlay(url, bounds, {
